@@ -107,23 +107,56 @@
     <p>Learn new skills, grow your career, and inspire your future from Kigezi to the world.</p>
   </section>
 
-  <section class="courses" id="courses">
-    <div class="course">
-      <h3>Digital Literacy</h3>
-      <p>Master computer basics and online tools for success.</p>
-      <button>Enroll Now</button>
-    </div>
-    <div class="course">
-      <h3>Entrepreneurship</h3>
-      <p>Learn how to start and grow your own business.</p>
-      <button>Enroll Now</button>
-    </div>
-    <div class="course">
-      <h3>Faith & Leadership</h3>
-      <p>Develop leadership rooted in values and community service.</p>
-      <button>Enroll Now</button>
-    </div>
-  </section>
+  <!-- Login Section -->
+<section class="login" id="login" style="background:#f0f0f0; padding:40px; text-align:center;">
+  <h2>Login to Enroll</h2>
+  <form action="login.php" method="post" style="max-width:400px; margin:auto; background:#fff; padding:20px; border:1px solid #ccc;">
+    <label>Email:</label><br>
+    <input type="email" name="email" required><br><br>
+
+    <label>Password:</label><br>
+    <input type="password" name="password" required><br><br>
+
+    <button type="submit">Login</button>
+    <p>Don’t have an account? <a href="register.php">Register here</a></p>
+  </form>
+</section>
+<section class="courses" id="courses">
+  <div class="course">
+    <h3>Digital Literacy</h3>
+    <p>Master computer basics and online tools for success.</p>
+    <button onclick="checkLogin('Digital Literacy')">Enroll Now</button>
+  </div>
+
+  <div class="course">
+    <h3>Entrepreneurship</h3>
+    <p>Learn how to start and grow your own business.</p>
+    <button onclick="checkLogin('Entrepreneurship')">Enroll Now</button>
+  </div>
+
+  <div class="course">
+    <h3>Faith & Leadership</h3>
+    <p>Develop leadership rooted in values and community service.</p>
+    <button onclick="checkLogin('Faith & Leadership')">Enroll Now</button>
+  </div>
+</section>
+
+<script>
+function checkLogin(courseName) {
+  // In real PHP, you’d check session here
+  var loggedIn = false; // demo only
+
+  if(loggedIn){
+    alert("You are enrolled in " + courseName + "!");
+    window.location.href = "dashboard.php";
+  } else {
+    alert("Please log in first to enroll.");
+    window.location.href = "login.php";
+  }
+}
+</script>
+
+  
 
 <footer id="contact">
   <div style="display:flex; flex-wrap:wrap; justify-content:space-between;">
