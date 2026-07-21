@@ -1,204 +1,429 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Zubic Academy | Empowering Skills, Inspiring Futures</title>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>St. Charles Lwanga SSS Muko</title>
+
+<link rel="stylesheet" href="lwanga.css">
+
   <style>
-    body {
-      font-family: 'Segoe UI', Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f9f9f9;
-      color: #333;
+    /* ===== STAFF SECTION ===== */
+    section {
+      padding:40px 20px;
+      max-width:1200px;
+      margin:auto;
+      text-align:center;
     }
-    header {
-      background-color: #002b5c;
-      color: white;
-      text-align: center;
-      padding: 20px;
-    }
-    header img {
-      height: 80px;
-    }
-    nav {
-      background-color: #ff7f00;
-      display: flex;
-      justify-content: center;
-      padding: 10px;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 0 15px;
-      font-weight: bold;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    .hero {
-      background: linear-gradient(to right, #002b5c, #ff7f00);
-      color: white;
-      text-align: center;
-      padding: 60px 20px;
-    }
-    .hero h1 {
-      font-size: 2.5em;
-      margin-bottom: 10px;
-    }
-    .hero p {
-      font-size: 1.2em;
-    }
-    .courses {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      padding: 40px;
-    }
-    .course {
-      background-color: white;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      padding: 20px;
-      text-align: center;
-    }
-    .course h3 {
-      color: #002b5c;
-    }
-    .course button {
-      background-color: #ff7f00;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    .course button:hover {
-      background-color: #e56e00;
-    }
-    footer {
-      background-color: #002b5c;
-      color: white;
-      text-align: left;
-      padding: 20px;
-    }
-    footer a {
-      color: #ff7f00;
-      text-decoration: none;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <img src="academy.jpeg" alt="Zubic Academy Logo">
-    <h1>Zubic Academy</h1>
-    <p>Empowering Skills, Inspiring Futures</p>
-  </header>
 
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#courses">Courses</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-  </nav>
+    section h2 {
+      font-size:2rem;
+      color:#004aad;
+      margin-bottom:30px;
+      position:relative;
+    }
 
-  <section class="hero" id="home">
-    <h1>Welcome to Zubic Academy</h1>
-    <p>Learn new skills, grow your career, and inspire your future from Kigezi to the world.</p>
-  </section>
+    section h2::after {
+      content:"";
+      display:block;
+      width:60px;
+      height:3px;
+      background:#FFD700;
+      margin:10px auto 0;
+      border-radius:2px;
+    }
 
-  <!-- Login Section -->
-<section class="login" id="login" style="background:#f0f0f0; padding:40px; text-align:center;">
-  <h2>Login to Enroll</h2>
-  <form action="login.php" method="post" style="max-width:400px; margin:auto; background:#fff; padding:20px; border:1px solid #ccc;">
-    <label>Email:</label><br>
-    <input type="email" name="email" required><br><br>
+    /* ===== STAFF GRID ===== */
+    .staff-container {
+      display:grid;
+      grid-template-columns:repeat(2, 1fr); /* two columns on desktop */
+      gap:30px;
+      justify-items:center;
+    }
 
-    <label>Password:</label><br>
-    <input type="password" name="password" required><br><br>
+    .staff-card {
+      background:#fff;
+      border-radius:12px;
+      box-shadow:0 4px 12px rgba(0,0,0,0.1);
+      padding:20px;
+      text-align:center;
+      transition:0.3s ease;
+      width:100%;
+      max-width:350px;
+    }
 
-    <button type="submit">Login</button>
-    <p>Don’t have an account? <a href="register.php">Register here</a></p>
-  </form>
-</section>
-<section class="courses" id="courses">
-  <div class="course">
-    <h3>Digital Literacy</h3>
-    <p>Master computer basics and online tools for success.</p>
-    <button onclick="checkLogin('Digital Literacy')">Enroll Now</button>
-  </div>
+    .staff-card img {
+      width:150px;
+      height:150px;
+      object-fit:cover;
+      border-radius:50%;
+      margin-bottom:15px;
+      box-shadow:0 4px 8px rgba(0,0,0,0.2);
+    }
 
-  <div class="course">
-    <h3>Entrepreneurship</h3>
-    <p>Learn how to start and grow your own business.</p>
-    <button onclick="checkLogin('Entrepreneurship')">Enroll Now</button>
-  </div>
+    .staff-card p {
+      font-size:1.1rem;
+      color:#333;
+      font-weight:bold;
+    }
 
-  <div class="course">
-    <h3>Faith & Leadership</h3>
-    <p>Develop leadership rooted in values and community service.</p>
-    <button onclick="checkLogin('Faith & Leadership')">Enroll Now</button>
-  </div>
-</section>
+    .staff-card:hover {
+      transform:translateY(-5px);
+      box-shadow:0 6px 16px rgba(0,0,0,0.15);
+    }
 
-<script>
-function checkLogin(courseName) {
-  // In real PHP, you’d check session here
-  var loggedIn = false; // demo only
+    /* ===== MOBILE FRIENDLY ===== */
+    @media(max-width:768px){
+      .staff-container {
+        grid-template-columns:1fr; /* stack cards on mobile */
+      }
+    }
+    /* ===== FACILITIES SECTION ===== */
+.facilities-section {
+  padding: 50px 20px;
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+}
 
-  if(loggedIn){
-    alert("You are enrolled in " + courseName + "!");
-    window.location.href = "dashboard.php";
-  } else {
-    alert("Please log in first to enroll.");
-    window.location.href = "login.php";
+.section-title {
+  font-size: 2rem;
+  color: #004aad;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: #FFD700;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+/* ===== GRID LAYOUT ===== */
+.facilities-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* two columns on desktop */
+  gap: 30px;
+}
+
+/* ===== FACILITY CARD ===== */
+.facility-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 20px;
+  text-align: center;
+  transition: 0.3s ease;
+}
+
+.facility-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.facility-card h3 {
+  color: #004aad;
+  margin-bottom: 10px;
+}
+
+.facility-card p {
+  color: #444;
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+
+.facility-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+
+/* ===== BUTTON STYLE ===== */
+.btn-primary {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #004aad;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: 0.3s ease;
+}
+
+.btn-primary:hover {
+  background: #FFD700;
+  color: #004aad;
+}
+
+/* ===== MOBILE FRIENDLY ===== */
+@media(max-width:768px){
+  .facilities-container {
+    grid-template-columns: 1fr; /* stack cards on mobile */
   }
 }
-</script>
+    footer {
+  background-color: #f8f8f8; /* optional: footer background */
+  padding: 20px;
+  text-align: left; /* ensures content is left-aligned */
+}
 
+footer #contact {
+  max-width: 400px; /* optional: keeps it neat */
+  margin: 0; /* removes auto-centering */
+}
+
+footer #contact h2,
+footer #contact p {
+  margin: 5px 0;
+  text-align: left; /* ensures text is justified left */
+}
+  </style>
+</head>
+
+<body>
+  <div class="announcement">
+    <marquee>
+        📢 Admissions for 2026 are now open | UNEB Registration Ongoing | School Visitation Day Coming Soon
+    </marquee>
+</div>
+  <header>
+
+<div class="header-container">
+
+    <div class="logo-area">
+        <img src="lwangalogo.webp" alt="School Logo">
+        <h1>ST. CHARLES LWANGA SSS MUKO</h1>
+    </div>
+
+    <div class="header-actions">
+
+        <div class="search-container">
+            <button id="searchBtn">🔍</button>
+
+            <div id="searchBox" class="hidden">
+                <input type="text" id="searchInput" placeholder="Search...">
+                <button id="runSearch">Go</button>
+            </div>
+        </div>
+
+        <button class="menu-toggle" id="menuBtn">
+            ☰
+        </button>
+
+    </div>
+
+</div>
+
+<nav>
+  
+    <ul id="nav-list">
+      
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="academics.html">Academics</a></li>
+        <li><a href="admission.html">Admission</a></li>
+        <li><a href="facilities.html">Facilities</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</nav>
+
+</header>
   
 
-<footer id="contact">
-  <div style="display:flex; flex-wrap:wrap; justify-content:space-between;">
+<section class="hero">
+    <div class="hero-content">
 
-    <!-- Contact Info -->
-    <div style="flex:1; min-width:250px; margin:10px;">
-      <h3>Contact Us</h3>
-      <p>Visit us in <strong>Kabale, Kigezi, Uganda</strong></p>
-      <p>Phone: <a href="tel:+256755370787">+256 755 370787</a></p>
-      <p>Email: <a href="mailto:zubicacademy@gmail.com">zubicacademy@gmail.com</a></p>
-      <p>WhatsApp: <a href="https://wa.me/256784189990" target="_blank">Chat with us</a></p>
+        <h3>Welcome to Our Mighty School</h3>
+
+        <h1>ST. CHARLES LWANGA SSS MUKO</h1>
+
+        <p class="motto">"Intelligence Aims At Wise Action"</p>
+
+        <a href="admission.html" class="hero-btn">
+            Apply Now
+        </a>
+
+    </div>
+</section>
+<section>
+  <h2>School Motto</h2>
+  <p>Intelligence Aims at Wise Action </p>
+  <h2>School Mission</h2>
+  <p>Integral Education For Development.</p>
+  
+  <h2>School Vision</h2>
+  <p>To be a center of excellence in education, nurturing disciplined, innovative, and responsible citizens equipped with knowledge, skills, and values for a dynamic world.</p>
+</section>
+
+<!-- STAFF -->
+<section>
+  <h2>Our Staff</h2>
+  <div class="staff-container">
+    <div class="staff-card">
+      <img src="bo.webp" alt="Chairperson">
+      <p>Chairperson Board Of Governor</p>
+    </div>
+    <div class="staff-card">
+      <img src="hea.webp" alt="Head Teacher">
+      <p>Head Teacher</p>
+    </div>
+    <div class="staff-card">
+      <img src="deputy.webp" alt="Deputy Head Teacher">
+      <p>Deputy Head Teacher</p>
+    </div>
+    <div class="staff-card">
+      <img src="nn.webp" alt="Teaching Staff">
+      <p>Teaching Staff</p>
+    </div>
+  </div>
+</section>
+
+<section class="about-section">
+
+    <div class="about-container">
+
+        <!-- LEFT TEXT -->
+        <div class="about-text">
+            <h2>About Our School</h2>
+            <p>
+                St. Charles Lwanga S.S Muko is a mixed day and boarding secondary school 
+                located in Rubanda District. The school provides quality education with 
+                strong Christian values, fostering discipline, excellence, and leadership.
+            </p>
+
+            <a href="about.html" class="btn-primary">Read More</a>
+        </div>
+
+        <!-- RIGHT IMAGE -->
+        <div class="about-image">
+            <img src="studentsasseble.webp" alt="School Image">
+        </div>
+
     </div>
 
-    <!-- Quick Links -->
-    <div style="flex:1; min-width:200px; margin:10px;">
+</section>
+
+
+<section class="facilities-section">
+
+    <h2 class="section-title">Our Facilities</h2>
+
+    <div class="facilities-container">
+
+        <!-- CARD 1 -->
+        <div class="facility-card">
+            <img src="scielab.webp" alt="Science Lab" loading="lazy">
+            <h3>Science Laboratory</h3>
+            <p>Fully equipped labs to support practical learning in sciences.</p>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="facility-card">
+            <img src="compu.webp" alt="Library"loading="lazy">
+            <h3>Library</h3>
+            <p>A well-stocked library with academic and reference materials.</p>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="facility-card">
+            <img src="sports1.webp" alt="Sports"loading="lazy">
+            <h3>Sports Grounds</h3>
+            <p>Spacious fields for football, athletics, and co-curricular activities.</p>
+            <a href="facilities.html" class="btn-primary">Learn More</a>
+        </div>
+
+    </div>
+
+</section>
+
+<section id="academics">
+
+<h2>Academics</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>O Level</h3>
+<p>Students study core subjects including Mathematics, English and Sciences.</p>
+<h3>A Level</h3>
+The school offers both science and arts combinations.</p>
+<a href="academics.html" class="btn-primary">Learn More</a>
+</div>
+
+<div class="card">
+<h3>Co-Curricular</h3>
+<p>Sports, music, debate and leadership programs.</p>
+<a href="cocurricular.html" class="btn-primary">Learn More</a>
+</div>
+
+</div>
+
+</section>
+<footer class="site-footer">
+
+  <div class="footer-container">
+
+    <!-- QUICK LINKS -->
+    <div class="footer-box">
       <h3>Quick Links</h3>
-      <ul style="list-style:none; padding:0;">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#courses">Courses</a></li>
-        <li><a href="#about">About Us</a></li>
-        <li><a href="#blog">Blog</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="admission.html">Admissions</a>
+      <a href="academics.html">Academics</a>
+      <a href="schoolrules.html">School rules</a>
+      <a href="contact.html">Contact</a>
     </div>
 
-    <!-- Social Media -->
-    <div style="flex:1; min-width:200px; margin:10px;">
-      <h3>Follow Us</h3>
-      <p>
-        <a href="https://facebook.com" target="_blank">Facebook</a> | 
-        <a href="https://twitter.com" target="_blank">Twitter</a> | 
-        <a href="https://instagram.com" target="_blank">Instagram</a> | 
-        <a href="https://youtube.com" target="_blank">YouTube</a>
-      </p>
+    <!-- DOWNLOADS -->
+    <div class="footer-box">
+      <h3>Downloads</h3>
+      <a href="schoolrules.pdf">School Rules PDF</a>
+      <a href="#">Fees Structure</a>
+      <a href="#">Term Calendar</a>
+      <a href="#">Application Form</a>
     </div>
+
+    <!-- SCHOOL INFO -->
+    <div class="footer-box">
+      <h3>Our School</h3>
+      <p>We provide quality education and a strong foundation for success.</p>
+    </div>
+
+  </div>
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>
+      Visit us in <strong>Muko catholic Parish,Muko S/County, Rubanda, Uganda</strong> or reach out via phone at 
+      <strong><a href="tel:+256755370787">+256 755 370787</a></strong>.
+    </p>
+    <p>
+      Email: <strong><a href="mailto:stcharleslwangasssmuko@gmail.com">stcharleslwangasssmuko@gmail.com</a></strong>
+    </p>
+    <p>
+      WhatsApp: 
+      <strong>
+        <a href="https://wa.me/256784189990" target="_blank" class="whatsapp-link">
+          Chat with us on WhatsApp
+        </a>
+      </strong>
+    </p>
+  </section>
+
+  <div class="footer-bottom">
+    <p>Designed by Nabaasa Alfred Tel no.0784189990
+     djzubicmal@gmail.com</p>
+    <p>© 2026 ST CHARLES LWANGA SSS MUKO. All Rights Reserved.</p>
   </div>
 
-  <!-- Copyright -->
-  <div style="text-align:center; margin-top:20px; border-top:1px solid #444; padding-top:10px;">
-    <p>&copy; 2026 Zubic Academy. All Rights Reserved.</p>
-    <p>Designed with ❤️ in Kigezi, Uganda.</p>
-  </div>
 </footer>
+<script src="lwanga.js"></script>
 </body>
 </html>
+
